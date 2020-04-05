@@ -21,8 +21,13 @@ api.get('/adduser', (req, res) => {
           }); 
         });
       
-        res.send('Hello Worldqwqfwfqfqwfqwfwq')   
+        res.send({
+            status: 'sucess', 
+            name: name,
+            surName: surName
+        })
 })
+
 api.post('/addpsih', (req, res) => {
     console.log(req.body)   
 
@@ -37,8 +42,10 @@ api.post('/addpsih', (req, res) => {
                 console.log("1 document inserted");
                 client.close();
             }); 
-        });
-      
-    res.send('Hello Worldqwqfwfqfqwfqwfwq')   
+    });
+    res.send({
+        status: 'sucess inserted data', 
+    })
 })
+
 module.exports = api;
