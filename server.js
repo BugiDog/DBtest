@@ -1,8 +1,11 @@
-'use strict';
-var http = require('http');
-var port = process.env.PORT || 1337;
+const adduser = require('./Routes/adduser')
+const express = require('express')
+const bodyParser = require('body-parser')
 
-http.createServer(function (req, res) {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Hello World\n');
-}).listen(port);
+const app = express() 
+
+app.use(bodyParser.json());
+
+app.use('/', adduser)
+ 
+app.listen(3000)
