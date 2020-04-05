@@ -23,23 +23,22 @@ api.get('/adduser', (req, res) => {
       
         res.send('Hello Worldqwqfwfqfqwfqwfwq')   
 })
-api.get('/addpsih', (req, res) => {
-    console.log(req.query)  
-    const name=req.query.name   
-    const surName=req.query.surname
+api.post('/addpsih', (req, res) => {
+    console.log(req.body)   
+
   
     const client = new MongoClient(uri, { useNewUrlParser: true });
   
     client.connect(err => {
-        const collection = client.db("Test").collection("Psih");  
-        const myobj = { name: name, surname : surName };
-          collection.insertOne(myobj, function(err, res) {
-            if (err) throw err;
-            console.log("1 document inserted");
-            client.close();
-          }); 
+            const collection = client.db("Test").collection("Psih");  
+            const myobj = { name: req.body.name, surname : req.body.surname };
+            collection.insertOne(myobj, function(err, res) {
+                if (err) throw err;
+                console.log("1 document inserted");
+                client.close();
+            }); 
         });
       
-        res.send('Hello Worldqwqfwfqfqwfqwfwq')   
+    res.send('Hello Worldqwqfwfqfqwfqwfwq')   
 })
 module.exports = api;
