@@ -4,7 +4,7 @@ const uri = "mongodb+srv://BugiDog:Bugilan080919@cluster0-sfqfz.mongodb.net/test
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
   const collection = client.db("Test");
-  const myobj = { name: "Company Inc", address: "Highway 37" };
+  const myobj = { name: "AAA", address: "BBBB" };
   collection.collection("Pazient").insertOne(myobj, function(err, res) {
     if (err) throw err;
     console.log("1 document inserted");
