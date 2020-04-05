@@ -1,0 +1,12 @@
+{
+  "name": "dbtest",
+  "version": "0.0.0",
+  "description": "DBtest",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "mongodb": "^3.5.5"
+  }
+}
