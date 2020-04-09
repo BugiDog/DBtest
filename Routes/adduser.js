@@ -46,7 +46,7 @@ api.get('/addpsih', (req, res) => {
         });
       
         res.send({
-            status: 'success', 
+            status: 'success хуй', 
             name: name,
             surName: surName,
             password: pass
