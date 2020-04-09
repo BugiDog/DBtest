@@ -20,7 +20,7 @@ api.get('/adduser', (req, res) => {
             client.close();
           }); 
         });
-      
+        res.setHeader('Access-Control-Allow-Origin', 'https://bugidog.github.io');
         res.send({
             status: 'success', 
             name: name,
@@ -44,7 +44,7 @@ api.get('/addpsih', (req, res) => {
             client.close();
           }); 
         });
-      
+        res.setHeader('Access-Control-Allow-Origin', 'https://bugidog.github.io');
         res.send({
             status: 'success хуй', 
             name: name,
