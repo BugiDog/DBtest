@@ -1,4 +1,5 @@
 const adduser = require('./Routes/adduser')
+const getuser = require('./Routes/getuser')
 const express = require('express')
 const bodyParser = require('body-parser')
 
@@ -9,7 +10,8 @@ const app = express()
 
 app.use(bodyParser.json());
 
-app.use('/', adduser)
+app.use('/add', adduser)
+app.use('/get', getuser)
  
 app.listen(port)
 
