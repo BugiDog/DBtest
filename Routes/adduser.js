@@ -16,7 +16,7 @@ api.get('/user', (req, res) => {
 
   client.connect(err => {
     const collection = client.db("Test").collection("users");
-    const myobj = { Type:type , Login:login , Password:pass , Name: name , Surname: surName  };
+    const myobj = { type:type , login:login , password:pass , name: name , surname: surName  };
     collection.insertOne(myobj, function (err, res) {
       if (err) throw err;
       console.log("1 document inserted");
@@ -26,6 +26,7 @@ api.get('/user', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.send('SUCCESS')
 })
+
 
 // api.post('/addpsih', (req, res) => {
 //     console.log(req.body)   
