@@ -6,16 +6,17 @@ const api = express.Router();
 
 api.get('/user', (req, res) => {
   console.log(req.query)
+  const type =req.query.type
   const login=req.query.login
+  const pass = req.query.password
   const name = req.query.name
   const surName = req.query.surname
-  const pass = req.query.password
 
   const client = new MongoClient(uri, { useNewUrlParser: true });
 
   client.connect(err => {
-    const collection = client.db("Test").collection("Pazient");
-    const myobj = { login:login, name: name, surname: surName , password:pass};
+    const collection = client.db("Test").collection("users");
+    const myobj = { Type:type , Login:login , Password:pass , Name: name , Surname: surName  };
     collection.insertOne(myobj, function (err, res) {
       if (err) throw err;
       console.log("1 document inserted");
@@ -23,38 +24,9 @@ api.get('/user', (req, res) => {
     });
   });
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.send({
-    status: 'success',
-  //   name: name,
-  //   surName: surName
-   })
+  res.send('SUCCESS')
 })
-api.get('/psih', (req, res) => {
-  console.log(req.query)
-  const login=req.query.login
-  const name = req.query.name
-  const surName = req.query.surname
-  const pass = req.query.password
 
-  const client = new MongoClient(uri, { useNewUrlParser: true });
-
-  client.connect(err => {
-    const collection = client.db("Test").collection("Psih");
-    const myobj = {login:login, name: name, surname: surName, password: pass };
-    collection.insertOne(myobj, function (err, res) {
-      if (err) throw err;
-      console.log("1 document inserted");
-      client.close();
-    });
-  });
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.send({
-    status: 'success хуй',
-    // name: name,
-    // surName: surName,
-    // password: pass
-  })
-})
 // api.post('/addpsih', (req, res) => {
 //     console.log(req.body)   
 
