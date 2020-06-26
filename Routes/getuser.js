@@ -45,12 +45,14 @@ api.get('/login', (req, res) => {
                 //console.log(results.surname + "  " + results.name + "  " + results._id);
                 if (results === null) {
                     res.send("nope")
+                    console.log("nope")
                 } else {
                     if (results.password === pass) {
                         res.send("ok")
                         console.log(results)
                     } else {
                         res.send("passErr")
+                        console.log("passErr")
                     }
                 }
                 client.close();

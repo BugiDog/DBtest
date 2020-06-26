@@ -51,8 +51,8 @@ api.get('/testrez', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.send('SUCCESS')
 });
-
-
+ 
+ 
 api.get('/testupdate', (req, res) => {
   console.log(req.query)
   const testName = req.query.testname
